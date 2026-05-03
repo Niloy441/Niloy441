@@ -1,34 +1,322 @@
-<h1 align="center">Hi 👋, I'm Mahrab Hasan</h1>
-<h3 align="center">A passionate frontend developer from Bangladesh</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Mahrab Hasan Niloy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --gold:#c9a84c; --gold2:#f0d080; --dark:#09090f;
+  --card:#111119; --card2:#16161f; --border:rgba(201,168,76,0.15);
+  --text:#ddddf0; --muted:#7777aa;
+}
+body { background:var(--dark); color:var(--text); font-family:'DM Sans',sans-serif; font-weight:300; overflow-x:hidden; }
+.bg-glow {
+  position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(ellipse 800px 500px at 20% 10%, rgba(201,168,76,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 80% 90%, rgba(100,80,200,0.05) 0%, transparent 70%);
+}
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px);} to{opacity:1;transform:translateY(0);} }
+.fade{opacity:0;animation:fadeUp 0.75s ease forwards;}
+.d1{animation-delay:.1s;} .d2{animation-delay:.25s;} .d3{animation-delay:.4s;}
+.d4{animation-delay:.55s;} .d5{animation-delay:.7s;} .d6{animation-delay:.85s;}
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=niloy441&label=Profile%20views&color=0e75b6&style=flat" alt="niloy441" /> </p>
+/* HERO */
+.hero {
+  min-height:100vh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+  padding:80px 24px 60px; position:relative; z-index:1;
+}
+.avatar-wrap{width:120px;height:120px;margin-bottom:36px;position:relative;}
+.avatar-ring{
+  position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(var(--gold) 0deg,var(--gold2) 120deg,transparent 200deg,var(--gold) 360deg);
+  animation:spin 5s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.avatar-inner{
+  position:absolute;inset:3px;border-radius:50%;background:var(--dark);
+  display:grid;place-items:center;
+  font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:var(--gold);
+}
+.eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px;}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(44px,10vw,84px);font-weight:900;line-height:1.0;color:#fff;}
+.hero-name em{
+  display:block;font-style:italic;
+  background:linear-gradient(120deg,var(--gold),var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-tagline{font-size:17px;color:var(--muted);margin-top:18px;max-width:460px;}
+.divider{width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:28px auto;}
+.badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:24px;}
+.badge{padding:6px 18px;border:1px solid var(--border);border-radius:100px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold2);background:rgba(201,168,76,0.07);}
+.scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.scroll-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:bounce 1.4s ease-in-out infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0);opacity:1;}50%{transform:translateY(8px);opacity:0.4;}}
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=niloy441" alt="niloy441" /></a> </p>
+/* LAYOUT */
+.wrap{max-width:900px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+.sec-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:12px;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,40px);font-weight:700;color:#fff;line-height:1.2;margin-bottom:36px;}
+.sec-title em{font-style:italic;color:var(--gold);}
+hr.gold{border:none;border-top:1px solid var(--border);}
 
-<p align="left"> <a href="https://twitter.com/mdniloy97100827" target="blank"><img src="https://img.shields.io/twitter/follow/mdniloy97100827?logo=twitter&style=for-the-badge" alt="mdniloy97100827" /></a> </p>
+/* ABOUT */
+.about-section{padding:80px 0;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+@media(max-width:680px){.about-grid{grid-template-columns:1fr;}}
+.about-text p{font-size:16px;line-height:1.9;color:#aaaac0;margin-bottom:18px;}
+.about-text p strong{color:var(--gold2);font-weight:500;}
+.info-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.info-list li{display:flex;align-items:flex-start;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;transition:border-color 0.3s;}
+.info-list li:hover{border-color:rgba(201,168,76,0.4);}
+.info-icon{font-size:20px;flex-shrink:0;line-height:1.4;}
+.info-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:3px;}
+.info-val{color:var(--text);font-size:14px;}
+.info-val a{color:var(--gold2);text-decoration:none;}
+.info-val a:hover{text-decoration:underline;}
 
-- 🔭 I’m currently working on **webapp**
+/* WORK */
+.work-section{padding:60px 0;}
+.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.work-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 24px;position:relative;overflow:hidden;transition:all 0.3s ease;}
+.work-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;}
+.work-card:hover{transform:translateY(-3px);border-color:rgba(201,168,76,0.3);}
+.work-card:hover::before{transform:scaleX(1);}
+.work-icon{font-size:32px;margin-bottom:14px;}
+.work-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:10px;}
+.work-desc{font-size:14px;line-height:1.7;color:var(--muted);}
 
-- 🌱 I’m currently learning **Frontend and backend Development**
+/* SKILLS — colored text logo badges */
+.skills-section{padding:60px 0;}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;}
+.skill-pill{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 10px;text-align:center;transition:all 0.3s ease;cursor:default;}
+.skill-pill:hover{border-color:rgba(201,168,76,0.5);background:var(--card2);transform:translateY(-3px);box-shadow:0 8px 24px rgba(201,168,76,0.1);}
+.skill-logo{
+  width:44px;height:44px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;letter-spacing:0.5px;
+  color:#fff;margin:0 auto 10px;
+}
+.skill-name{font-size:12px;color:var(--muted);}
 
-- 🤝 I’m looking for help with [Blog site](https://github.com/Niloy441/django-blog-website)
+/* STATS */
+.stats-section{padding:60px 0;}
+.trophy-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;margin-bottom:16px;overflow:hidden;}
+.trophy-card img{max-width:100%;height:auto;border-radius:6px;display:block;margin:0 auto;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:640px){.stats-grid{grid-template-columns:1fr;}}
+.stats-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;transition:border-color 0.3s;overflow:hidden;}
+.stats-card:hover{border-color:rgba(201,168,76,0.3);}
+.stats-card img{max-width:100%;height:auto;border-radius:6px;display:block;margin:0 auto;}
+.stats-card.full{grid-column:1 / -1;}
 
-- 👨‍💻 All of my projects are available at [https://github.com/Niloy441](https://github.com/Niloy441)
+/* SOCIAL */
+.social-section{padding:60px 0 80px;}
+.social-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
+.social-btn{display:inline-flex;align-items:center;gap:12px;padding:14px 26px;border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text);font-size:15px;font-weight:500;background:var(--card);transition:all 0.3s ease;}
+.social-btn:hover{border-color:var(--gold);color:var(--gold2);transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,168,76,0.12);}
 
-- 📫 How to reach me **Niloy008055@gmail.com**
+/* CTA */
+.cta-wrap{max-width:900px;margin:0 auto 80px;padding:0 24px;position:relative;z-index:1;}
+.cta-box{background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(100,80,200,0.08));border:1px solid var(--border);border-radius:16px;padding:48px 36px;text-align:center;}
+.cta-box h2{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin-bottom:12px;}
+.cta-box p{font-size:16px;color:var(--muted);margin-bottom:28px;}
+.cta-btn{display:inline-block;padding:14px 36px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--dark);font-weight:600;font-size:15px;border-radius:8px;text-decoration:none;transition:all 0.3s ease;}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,0.3);}
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://twitter.com/mdniloy97100827" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="mdniloy97100827" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/mahrab-hasan-817477400" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="mahrab-hasan-817477400" height="30" width="40" /></a>
-<a href="https://fb.com/mahrab.hasan.niloy" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="mahrab.hasan.niloy" height="30" width="40" /></a>
-</p>
+footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;font-size:12px;color:var(--muted);position:relative;z-index:1;}
+footer a{color:var(--gold);text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://aws.amazon.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://firebase.google.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="firebase" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://www.photoshop.com/en" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" alt="photoshop" width="40" height="40"/> </a> <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> </p>
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="avatar-wrap fade d1">
+    <div class="avatar-ring"></div>
+    <div class="avatar-inner">MN</div>
+  </div>
+  <p class="eyebrow fade d2">Frontend Developer · Bangladesh 🇧🇩</p>
+  <h1 class="hero-name fade d3">Mahrab Hasan<em>Niloy</em></h1>
+  <p class="hero-tagline fade d4">Passionate about building beautiful web experiences &amp; intelligent automation tools.</p>
+  <div class="divider fade d4"></div>
+  <div class="badges fade d5">
+    <span class="badge">🧑‍💻 Web Developer</span>
+    <span class="badge">🤖 Auto Blogger</span>
+    <span class="badge">📰 News Publisher</span>
+    <span class="badge">🌐 Open Source</span>
+  </div>
+  <div class="scroll-hint fade d6"><span>Scroll</span><div class="scroll-dot"></div></div>
+</section>
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=niloy441&show_icons=true&locale=en&layout=compact" alt="niloy441" /></p>
+<hr class="gold"/>
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=niloy441&show_icons=true&locale=en" alt="niloy441" /></p>
+<!-- ═══ ABOUT ═══ -->
+<div class="wrap">
+  <section class="about-section">
+    <p class="sec-label fade d1">Who I Am</p>
+    <h2 class="sec-title fade d2">Developer by passion,<br/><em>builder by nature.</em></h2>
+    <div class="about-grid">
+      <div class="about-text fade d3">
+        <p>Hey! I'm <strong>Mahrab Hasan Niloy</strong> — a passionate frontend developer from <strong>Bangladesh</strong> who loves turning ideas into real, working products on the web.</p>
+        <p>I'm currently building a <strong>web application</strong> while diving deep into both frontend and backend development. Every interface should feel effortless and every line of code should solve a real problem.</p>
+        <p>Beyond coding, I run <strong>AllTime News</strong> — an AI-powered automated news blog publishing trending stories for a global English-speaking audience using smart automation tools I built myself.</p>
+      </div>
+      <ul class="info-list fade d4">
+        <li><span class="info-icon">🔭</span><div><span class="info-label">Currently Working On</span><span class="info-val">Web Application (Webapp)</span></div></li>
+        <li><span class="info-icon">🌱</span><div><span class="info-label">Currently Learning</span><span class="info-val">Frontend &amp; Backend Development</span></div></li>
+        <li><span class="info-icon">🤝</span><div><span class="info-label">Looking For Help With</span><span class="info-val"><a href="https://github.com/Niloy441/django-blog-website" target="_blank">Django Blog Website ↗</a></span></div></li>
+        <li><span class="info-icon">💻</span><div><span class="info-label">All My Projects</span><span class="info-val"><a href="https://github.com/Niloy441" target="_blank">github.com/Niloy441 ↗</a></span></div></li>
+        <li><span class="info-icon">📍</span><div><span class="info-label">Location</span><span class="info-val">Bangladesh 🇧🇩</span></div></li>
+        <li><span class="info-icon">📧</span><div><span class="info-label">Email</span><span class="info-val"><a href="mailto:Niloy008055@gmail.com">Niloy008055@gmail.com</a></span></div></li>
+      </ul>
+    </div>
+  </section>
+</div>
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=niloy441&" alt="niloy441" /></p>
+<hr class="gold"/>
+
+<!-- ═══ WHAT I DO ═══ -->
+<div class="wrap">
+  <section class="work-section">
+    <p class="sec-label fade d1">What I Do</p>
+    <h2 class="sec-title fade d2">Skills I bring<br/><em>to every project.</em></h2>
+    <div class="work-grid">
+      <div class="work-card fade d2"><div class="work-icon">🎨</div><div class="work-title">Frontend Development</div><p class="work-desc">Responsive, pixel-perfect interfaces with HTML5, CSS3, and JavaScript that work beautifully on any screen.</p></div>
+      <div class="work-card fade d3"><div class="work-icon">⚙️</div><div class="work-title">Backend Development</div><p class="work-desc">Robust server-side logic with PHP, Python, and databases like MySQL, PostgreSQL &amp; MongoDB.</p></div>
+      <div class="work-card fade d3"><div class="work-icon">🤖</div><div class="work-title">AI Auto Blogging</div><p class="work-desc">Smart automation that fetches trends, generates AI content, and auto-publishes to Blogger for a global audience.</p></div>
+      <div class="work-card fade d4"><div class="work-icon">☁️</div><div class="work-title">Cloud &amp; DevOps</div><p class="work-desc">Working with AWS, Firebase, and Git for deploying, hosting, and version-controlling web applications.</p></div>
+      <div class="work-card fade d4"><div class="work-icon">🗄️</div><div class="work-title">Database Management</div><p class="work-desc">Designing scalable databases with MySQL, PostgreSQL, and MongoDB for efficient data storage.</p></div>
+      <div class="work-card fade d5"><div class="work-icon">🖼️</div><div class="work-title">Design &amp; Graphics</div><p class="work-desc">Crafting visual assets and UI mockups with Adobe Photoshop to complement development work.</p></div>
+    </div>
+  </section>
+</div>
+
+<hr class="gold"/>
+
+<!-- ═══ TECH STACK ═══ -->
+<div class="wrap">
+  <section class="skills-section">
+    <p class="sec-label fade d1">Tech Stack</p>
+    <h2 class="sec-title fade d2">Languages &amp; <em>Tools I Use</em></h2>
+    <div class="skills-grid">
+
+      <div class="skill-pill fade d2">
+        <div class="skill-logo" style="background:#e34f26;font-size:10px;">HTML5</div>
+        <span class="skill-name">HTML5</span>
+      </div>
+      <div class="skill-pill fade d2">
+        <div class="skill-logo" style="background:#264de4;font-size:10px;">CSS3</div>
+        <span class="skill-name">CSS3</span>
+      </div>
+      <div class="skill-pill fade d2">
+        <div class="skill-logo" style="background:#f7df1e;color:#000;font-size:11px;">JS</div>
+        <span class="skill-name">JavaScript</span>
+      </div>
+      <div class="skill-pill fade d3">
+        <div class="skill-logo" style="background:#777bb4;font-size:11px;">PHP</div>
+        <span class="skill-name">PHP</span>
+      </div>
+      <div class="skill-pill fade d3">
+        <div class="skill-logo" style="background:#3776ab;font-size:11px;">PY</div>
+        <span class="skill-name">Python</span>
+      </div>
+      <div class="skill-pill fade d3">
+        <div class="skill-logo" style="background:#00758f;font-size:10px;">MySQL</div>
+        <span class="skill-name">MySQL</span>
+      </div>
+      <div class="skill-pill fade d4">
+        <div class="skill-logo" style="background:#336791;font-size:9px;">PgSQL</div>
+        <span class="skill-name">PostgreSQL</span>
+      </div>
+      <div class="skill-pill fade d4">
+        <div class="skill-logo" style="background:#47a248;font-size:9px;">Mongo</div>
+        <span class="skill-name">MongoDB</span>
+      </div>
+      <div class="skill-pill fade d4">
+        <div class="skill-logo" style="background:#ff6f00;font-size:18px;">🔥</div>
+        <span class="skill-name">Firebase</span>
+      </div>
+      <div class="skill-pill fade d5">
+        <div class="skill-logo" style="background:#ff9900;font-size:10px;">AWS</div>
+        <span class="skill-name">AWS</span>
+      </div>
+      <div class="skill-pill fade d5">
+        <div class="skill-logo" style="background:#f05033;font-size:11px;">GIT</div>
+        <span class="skill-name">Git</span>
+      </div>
+      <div class="skill-pill fade d5">
+        <div class="skill-logo" style="background:#31a8ff;font-size:11px;">PS</div>
+        <span class="skill-name">Photoshop</span>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<hr class="gold"/>
+
+<!-- ═══ GITHUB STATS ═══ -->
+<div class="wrap">
+  <section class="stats-section">
+    <p class="sec-label fade d1">GitHub Activity</p>
+    <h2 class="sec-title fade d2">My GitHub <em>Statistics</em></h2>
+
+    <div class="trophy-card fade d2">
+      <img src="https://github-profile-trophy.vercel.app/?username=niloy441&theme=darkhub&column=6&margin-w=8&no-bg=true&no-frame=true" alt="GitHub Trophies" loading="lazy"/>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stats-card fade d3">
+        <img src="https://github-readme-stats.vercel.app/api?username=niloy441&show_icons=true&theme=tokyonight&hide_border=true&bg_color=111119&title_color=c9a84c&icon_color=c9a84c&text_color=ddddf0" alt="GitHub Stats" loading="lazy"/>
+      </div>
+      <div class="stats-card fade d3">
+        <img src="https://github-readme-stats.vercel.app/api/top-langs?username=niloy441&layout=compact&theme=tokyonight&hide_border=true&bg_color=111119&title_color=c9a84c&text_color=ddddf0" alt="Top Languages" loading="lazy"/>
+      </div>
+      <div class="stats-card full fade d4">
+        <img src="https://github-readme-streak-stats.herokuapp.com/?user=niloy441&theme=tokyonight&hide_border=true&background=111119&ring=c9a84c&fire=f0d080&currStreakLabel=c9a84c" alt="GitHub Streak" loading="lazy"/>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr class="gold"/>
+
+<!-- ═══ SOCIAL ═══ -->
+<div class="wrap">
+  <section class="social-section">
+    <p class="sec-label fade d1">Get In Touch</p>
+    <h2 class="sec-title fade d2">Let's <em>Connect</em></h2>
+    <div class="social-grid">
+      <a href="https://fb.com/mahrab.hasan.niloy" target="_blank" class="social-btn fade d3"><span>📘</span> Facebook</a>
+      <a href="https://twitter.com/mdniloy97100827" target="_blank" class="social-btn fade d3"><span>🐦</span> Twitter / X</a>
+      <a href="https://linkedin.com/in/mahrab-hasan-817477400" target="_blank" class="social-btn fade d4"><span>💼</span> LinkedIn</a>
+      <a href="https://github.com/Niloy441" target="_blank" class="social-btn fade d4"><span>🐙</span> GitHub</a>
+      <a href="mailto:Niloy008055@gmail.com" class="social-btn fade d5"><span>✉️</span> Niloy008055@gmail.com</a>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ CTA ═══ -->
+<div class="cta-wrap fade d3">
+  <div class="cta-box">
+    <h2>Have a project in mind?</h2>
+    <p>Open to freelance work, collaborations, and open source contributions.</p>
+    <a href="mailto:Niloy008055@gmail.com" class="cta-btn">📬 Send Me an Email</a>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>© 2025 <strong style="color:var(--gold);">Mahrab Hasan Niloy</strong> · Made with ❤️ from Bangladesh &nbsp;|&nbsp;
+  <a href="https://github.com/Niloy441" target="_blank">GitHub</a> &nbsp;·&nbsp;
+  <a href="https://alltimenews6t9.blogspot.com" target="_blank">AllTime News</a></p>
+</footer>
+
+</body>
+</html>
